@@ -3,9 +3,9 @@ const app = express()
 const cors = require('cors');
 const port = process.env.PORT || 5000
 const mongoDB =require("./db")
-app.use(cors({ origin: 'https://food-order-henna.vercel.app' }));
+app.use(cors({ origin: '*' }));
 app.use((req,res,next)=>{
-  res.setHeader("Access-Control-Allow-Origin","https://food-order-henna.vercel.app");
+  res.setHeader("Access-Control-Allow-Origin","*");
   res.setHeader("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
   next();
 })
