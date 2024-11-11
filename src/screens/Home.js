@@ -9,7 +9,7 @@ export default function Home() {
   const[foodCat,setFoodCat]=useState([]);
   const[foodItem,setFoodItem]=useState([]);
   const loadData=async()=>{
-    let response=await fetch("https://food-order-bakend.vercel.app/api/foodData",{
+    let response=await fetch("https://foodorderbackend-production-ee8e.up.railway.app/api/foodData",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -62,12 +62,12 @@ useEffect(()=>{
        
       <div className="container">
         {
-          foodCat !==[]
+          foodCat.length > 0
           ? foodCat.map((data)=>{
               return(<div className="row mb-3">
                 <div key={data._id} className="fs-3 m-3" >{data.CategoryName}</div>
                 <hr />
-                {foodItem !==[]
+                {foodItem.length > 0
                 ? 
                 foodItem.filter((item)=>(item.CategoryName ===data.CategoryName) && (item.name.toLowerCase().includes(searchTerm)))
                 .map(filterItems=>{

@@ -6,7 +6,7 @@ export default function Signup() {
     const [credentials,setcredentials]=useState({name:"",email:"",password:"",geolocation:""});
     const handleSubmit= async(e)=>{
         e.preventDefault();
-        const response= await fetch("https://food-order-bakend.vercel.app/api/createuser",{
+        const response= await fetch("https://foodorderbackend-production-ee8e.up.railway.app/api/createuser",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify({name:credentials.name,email:credentials.email,password:credentials.password,location:credentials.geolocation})

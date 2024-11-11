@@ -5,7 +5,7 @@ export default function MyOrder() {
     const [orderData,setOrderData]=useState("");
     const fetchMyOrder = async () => {
     console.log(localStorage.getItem('userEmail'))
-        await fetch("https://food-order-bakend.vercel.app/api/myOrderData", {
+        await fetch("https://foodorderbackend-production-ee8e.up.railway.app/api/myOrderData", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ export default function MyOrder() {
     <div className='container'>
                 <div className='row'>
 
-                    {orderData !== {} ? Array(orderData).map(data => {
+                    {orderData.length>0 ? Array(orderData).map(data => {
                         return (
                             data.orderData ?
                                 data.orderData.order_data.slice(0).reverse().map((item) => {
